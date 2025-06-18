@@ -41,7 +41,7 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-           name: ${{ github.run_id }}
+           name: '${{ github.run_id }}-coverage'
            path: coverage/
            retention-days: 14
         
