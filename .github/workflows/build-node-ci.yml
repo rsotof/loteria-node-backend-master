@@ -1,4 +1,4 @@
-
+on
 name: build-node-ci
 
 on:
@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        node: [16, 18, 20]
+        node-version: [16.x, 18.x]
     steps:
       - uses: actions/checkout@v4
       - name: Setup Node.js ${{ matrix.node }}
