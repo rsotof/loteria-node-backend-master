@@ -1,0 +1,31 @@
+codecov:
+  require_ci_to_pass: true   # Solo publica si el CI pasa
+
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+
+  status:
+    project:
+      default:
+        enabled: true
+        target: 80%          # Mínimo requerido para cobertura total
+        threshold: 0.0       # No permite bajada
+        if_not_found: fail
+        informational: false
+    patch:
+      default:
+        enabled: true
+        target: 90%          # Mínimo requerido para nuevo código
+        threshold: 0.0
+        if_not_found: fail
+        informational: false
+
+comment:
+  layout: "reach, diff, files"
+  behavior: default
+  require_changes: false     # Siempre comenta (incluso si no hubo cambio de cobertura)
+
+github_checks:
+  annotations: true          # Muestra comentarios línea a línea en el PR
