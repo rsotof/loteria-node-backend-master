@@ -43,7 +43,21 @@ jobs:
           retention-days: 14
         
         
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+  deploy:
+      name: 'Dummy deploy'
+      needs: build
+      runs-on: ubuntu-latest
+      environment: 
+        name: DEV
+        url: 'https://example.com'
+
+      steps:
+        - name: 'Descarga artifact'
+          uses: actions/download-artifact@v4
+          with:
+            name: ${{ github.run_id }}
+
+        - name: 'Imprimir variables de entorno'
+          run: |
+            echo "Variables de entorno: ${{secrets.DEV_SECRET}}"
+            echo "Variables de entorno: ${{vars.DEV_VAR}}"
