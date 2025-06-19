@@ -26,5 +26,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Usar tempalte o action reutilizable
         uses: rsotof/loteria-devops-resources/.github/actions/helpers/hello-word@main
-
+        with:
+          comentario: 'Se Imprimio el mensaje'
     
